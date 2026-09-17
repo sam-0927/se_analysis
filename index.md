@@ -1,0 +1,376 @@
+<style>
+.anchor,
+.octicon-link {
+  display: none !important;
+}
+</style>
+
+### IWAENC 2026
+<a href="2026_IWAENC_Serom.pdf" target="_blank">📄 Paper</a>
+
+## Abstract
+
+<p align="center">
+  <img src="architecture_revise.png" width="600">
+</p>
+
+Recent neural speech enhancement (SE) systems leveraging pre-trained speech self-supervised learning (SSL) models have demonstrated strong performance. However, little attention has been paid to systematically analyzing how representations from different SSL layers can be utilized and how each contributes to SE performance. In this work, using early-layer SSL representations as primary acoustic features, we investigate the effects of incorporating contextual-related information extracted from deeper layer of the same SSL backbone. Experimental results reveal that compact contextual representations play a critical role in improving SE performance. 
+Rather than relying on an embedding-level matching loss, we explicitly train the higher-layer representation with a text prediction loss, which reduces irrelevant information and encourages more informative contextual features for SE. Motivated by these findings, we propose a novel SE framework, termed Serom, which explicitly exploits compressed contextual representations derived from late SSL layers. The resulting representations are integrated through a decoder and converted into enhanced speech using a neural vocoder. Experimental evaluations demonstrate that the proposed approach achieves state-of-the-art performance in terms of speech quality, intelligibility, and speaker similarity.
+
+## Sample
+
+### Evaluation samples
+
+
+
+<div style="overflow-x: auto; width: 100%;">
+<table style="border-collapse: collapse; text-align: center; white-space: nowrap; width: max-content;">
+<tr>
+<th style="min-width: 180px;">Model / Condition</th>
+<th style="min-width: 155px;">1</th>
+<th style="min-width: 155px;">2</th>
+<th style="min-width: 155px;">3</th>
+<th style="min-width: 155px;">4</th>
+<th style="min-width: 155px;">5</th>
+<th style="min-width: 155px;">6</th>
+<th style="min-width: 155px;">7</th>
+<th style="min-width: 155px;">8</th>
+<th style="min-width: 155px;">9</th>
+<th style="min-width: 155px;">10</th>
+</tr>
+<tr>
+<td><strong>Input (Mixture)</strong></td>
+<td><audio controls preload="none"><source src='./demo_sample/input_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/input_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/input_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/input_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/input_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/input_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/input_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/input_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/input_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/input_10.wav' type='audio/wav'></audio></td>
+</tr>
+<tr>
+<td><strong>Target</strong></td>
+<td><audio controls preload="none"><source src='./demo_sample/target_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/target_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/target_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/target_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/target_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/target_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/target_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/target_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/target_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/target_10.wav' type='audio/wav'></audio></td>
+</tr>
+<tr>
+<td><strong>SEROM</strong><br>No enrollment</td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_no_enroll_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_no_enroll_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_no_enroll_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_no_enroll_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_no_enroll_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_no_enroll_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_no_enroll_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_no_enroll_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_no_enroll_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_no_enroll_10.wav' type='audio/wav'></audio></td>
+</tr>
+<tr>
+<td>Enrollment</td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_enroll_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_enroll_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_enroll_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_enroll_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_enroll_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_enroll_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_enroll_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_enroll_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_enroll_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_enroll_10.wav' type='audio/wav'></audio></td>
+</tr>
+<tr>
+<td>Scale-matched enrollment</td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_enroll_scale_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_enroll_scale_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_enroll_scale_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_enroll_scale_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_enroll_scale_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_enroll_scale_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_enroll_scale_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_enroll_scale_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_enroll_scale_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/serom_enroll_scale_10.wav' type='audio/wav'></audio></td>
+</tr>
+<tr>
+<td><strong>PASE</strong><br>No enrollment</td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_no_enroll_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_no_enroll_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_no_enroll_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_no_enroll_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_no_enroll_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_no_enroll_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_no_enroll_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_no_enroll_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_no_enroll_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_no_enroll_10.wav' type='audio/wav'></audio></td>
+</tr>
+<tr>
+<td>Enrollment</td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_enroll_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_enroll_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_enroll_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_enroll_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_enroll_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_enroll_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_enroll_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_enroll_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_enroll_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_enroll_10.wav' type='audio/wav'></audio></td>
+</tr>
+<tr>
+<td>Scale-matched enrollment</td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_enroll_scale_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_enroll_scale_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_enroll_scale_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_enroll_scale_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_enroll_scale_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_enroll_scale_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_enroll_scale_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_enroll_scale_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_enroll_scale_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/pase_enroll_scale_10.wav' type='audio/wav'></audio></td>
+</tr>
+<tr>
+<td><strong>LCT-GAN</strong><br>No enrollment</td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_no_enroll_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_no_enroll_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_no_enroll_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_no_enroll_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_no_enroll_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_no_enroll_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_no_enroll_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_no_enroll_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_no_enroll_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_no_enroll_10.wav' type='audio/wav'></audio></td>
+</tr>
+<tr>
+<td>Enrollment</td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_enroll_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_enroll_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_enroll_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_enroll_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_enroll_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_enroll_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_enroll_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_enroll_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_enroll_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_enroll_10.wav' type='audio/wav'></audio></td>
+</tr>
+<tr>
+<td>Scale-matched enrollment</td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_enroll_scale_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_enroll_scale_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_enroll_scale_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_enroll_scale_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_enroll_scale_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_enroll_scale_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_enroll_scale_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_enroll_scale_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_enroll_scale_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/lctgan_enroll_scale_10.wav' type='audio/wav'></audio></td>
+</tr>
+<tr>
+<td><strong>SEMamba++</strong><br>No enrollment</td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_no_enroll_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_no_enroll_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_no_enroll_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_no_enroll_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_no_enroll_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_no_enroll_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_no_enroll_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_no_enroll_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_no_enroll_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_no_enroll_10.wav' type='audio/wav'></audio></td>
+</tr>
+<tr>
+<td>Enrollment</td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_enroll_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_enroll_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_enroll_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_enroll_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_enroll_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_enroll_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_enroll_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_enroll_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_enroll_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_enroll_10.wav' type='audio/wav'></audio></td>
+</tr>
+<tr>
+<td>Scale-matched enrollment</td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_enroll_scale_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_enroll_scale_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_enroll_scale_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_enroll_scale_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_enroll_scale_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_enroll_scale_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_enroll_scale_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_enroll_scale_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_enroll_scale_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/semembapp_enroll_scale_10.wav' type='audio/wav'></audio></td>
+</tr>
+<tr>
+<td><strong>CVAE</strong><br>No enrollment</td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_no_enroll_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_no_enroll_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_no_enroll_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_no_enroll_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_no_enroll_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_no_enroll_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_no_enroll_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_no_enroll_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_no_enroll_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_no_enroll_10.wav' type='audio/wav'></audio></td>
+</tr>
+<tr>
+<td>Enrollment</td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_enroll_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_enroll_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_enroll_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_enroll_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_enroll_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_enroll_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_enroll_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_enroll_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_enroll_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_enroll_10.wav' type='audio/wav'></audio></td>
+</tr>
+<tr>
+<td>Scale-matched enrollment</td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_enroll_scale_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_enroll_scale_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_enroll_scale_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_enroll_scale_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_enroll_scale_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_enroll_scale_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_enroll_scale_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_enroll_scale_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_enroll_scale_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample/vae_enroll_scale_10.wav' type='audio/wav'></audio></td>
+</tr>
+</table>
+</div>
+
+### Libri2Mix samples
+
+
+
+<div style="overflow-x: auto; width: 100%;">
+<table style="border-collapse: collapse; text-align: center; white-space: nowrap; width: max-content;">
+<tr>
+<th style="min-width: 190px;">Model</th>
+<th style="min-width: 155px;">1</th>
+<th style="min-width: 155px;">2</th>
+<th style="min-width: 155px;">3</th>
+<th style="min-width: 155px;">4</th>
+<th style="min-width: 155px;">5</th>
+<th style="min-width: 155px;">6</th>
+<th style="min-width: 155px;">7</th>
+<th style="min-width: 155px;">8</th>
+<th style="min-width: 155px;">9</th>
+<th style="min-width: 155px;">10</th>
+</tr>
+<tr>
+<td><strong>Target</strong></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/target_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/target_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/target_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/target_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/target_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/target_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/target_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/target_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/target_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/target_10.wav' type='audio/wav'></audio></td>
+</tr>
+<tr>
+<td><strong>SEF-PNet</strong></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/sefpnet_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/sefpnet_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/sefpnet_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/sefpnet_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/sefpnet_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/sefpnet_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/sefpnet_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/sefpnet_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/sefpnet_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/sefpnet_10.wav' type='audio/wav'></audio></td>
+</tr>
+<tr>
+<td><strong>SoloSpeech</strong></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/solospeech_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/solospeech_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/solospeech_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/solospeech_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/solospeech_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/solospeech_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/solospeech_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/solospeech_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/solospeech_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/solospeech_10.wav' type='audio/wav'></audio></td>
+</tr>
+<tr>
+<td><strong>SEROM</strong></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/serom_libri2mix_notrim_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/serom_libri2mix_notrim_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/serom_libri2mix_notrim_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/serom_libri2mix_notrim_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/serom_libri2mix_notrim_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/serom_libri2mix_notrim_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/serom_libri2mix_notrim_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/serom_libri2mix_notrim_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/serom_libri2mix_notrim_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/serom_libri2mix_notrim_10.wav' type='audio/wav'></audio></td>
+</tr>
+<tr>
+<td><strong>SEROM + Scale-matched</strong></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/serom_libri2mix_scale_notrim_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/serom_libri2mix_scale_notrim_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/serom_libri2mix_scale_notrim_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/serom_libri2mix_scale_notrim_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/serom_libri2mix_scale_notrim_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/serom_libri2mix_scale_notrim_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/serom_libri2mix_scale_notrim_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/serom_libri2mix_scale_notrim_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/serom_libri2mix_scale_notrim_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/serom_libri2mix_scale_notrim_10.wav' type='audio/wav'></audio></td>
+</tr>
+<tr>
+<td><strong>PASE</strong></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/pase_libri2mix_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/pase_libri2mix_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/pase_libri2mix_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/pase_libri2mix_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/pase_libri2mix_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/pase_libri2mix_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/pase_libri2mix_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/pase_libri2mix_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/pase_libri2mix_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/pase_libri2mix_10.wav' type='audio/wav'></audio></td>
+</tr>
+<tr>
+<td><strong>PASE + Scale-matched</strong></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/pase_libri2mix_scale_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/pase_libri2mix_scale_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/pase_libri2mix_scale_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/pase_libri2mix_scale_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/pase_libri2mix_scale_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/pase_libri2mix_scale_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/pase_libri2mix_scale_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/pase_libri2mix_scale_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/pase_libri2mix_scale_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/pase_libri2mix_scale_10.wav' type='audio/wav'></audio></td>
+</tr>
+</table>
+</div>
