@@ -5,8 +5,8 @@
 }
 </style>
 
-### IWAENC 2026
-<a href="2026_IWAENC_Serom.pdf" target="_blank">📄 Paper</a>
+### ICASSP 2027
+<a href="2026_ICASSP.pdf" target="_blank">📄 Paper</a>
 
 ## Abstract
 
@@ -14,14 +14,19 @@
   <img src="architecture_revise.png" width="600">
 </p>
 
-Recent neural speech enhancement (SE) systems leveraging pre-trained speech self-supervised learning (SSL) models have demonstrated strong performance. However, little attention has been paid to systematically analyzing how representations from different SSL layers can be utilized and how each contributes to SE performance. In this work, using early-layer SSL representations as primary acoustic features, we investigate the effects of incorporating contextual-related information extracted from deeper layer of the same SSL backbone. Experimental results reveal that compact contextual representations play a critical role in improving SE performance. 
-Rather than relying on an embedding-level matching loss, we explicitly train the higher-layer representation with a text prediction loss, which reduces irrelevant information and encourages more informative contextual features for SE. Motivated by these findings, we propose a novel SE framework, termed Serom, which explicitly exploits compressed contextual representations derived from late SSL layers. The resulting representations are integrated through a decoder and converted into enhanced speech using a neural vocoder. Experimental evaluations demonstrate that the proposed approach achieves state-of-the-art performance in terms of speech quality, intelligibility, and speaker similarity.
+Speech enhancement (SE) and target speaker extraction (TSE) share the objective of recovering desired speech from corrupted input signals, but are generally trained with different data and objectives. In this work, we investigate whether pretrained SE models can perform TSE without any TSE-specific training. We find that this capability appears in WavLM-based SE models, while other evaluated SE models fail to utilize enrollment speech for target extraction. Motivated by the overlapped-speech pretraining of WavLM, we conduct a series of analyses to examine how enrollment information contributes to the transferred TSE capability. Experimental results show that the models utilize enrollment speech for target speaker selection, and that acoustic conditions of the enrollment affect extraction performance under severe interference. We further show that the downstream representation design also influences TSE performance, where information reduction effective for SE can be unfavorable for TSE. Finally, evaluation on a standard TSE benchmark demonstrates that SE-only models achieve meaningful target extraction performance compared with models explicitly trained for TSE.
 
 ## Sample
+CVAE: "Towards Complex-Valued VAE-Based Distillation for Representation Learning in Speech Enhancement" in ITG, 2025 <br>
+LCT-GAN: “Study of Lightweight Transformer Architectures for Single-Channel Speech Enhancement” in EUSIPCO, 2025 <br>
+PASE: “PASE: Leveraging the Phonological Prior of WavLM for Low-Hallucination Generative Speech Enhancement” in AAAI, 2026 <br>
+SEROM: "SEROM: Speech enhancement with representation optimized SSL modeling" in IWAENC, 2026 <br>
+SEMamba++: “Universal speech enhancement with regression and generative mamba” in INTERSPEECH, 2025 <br>
+SoloSpeech: “SoloSpeech: Enhancing intelligibility and quality in target speech extraction through a cascaded generative pipeline” in IEEE TASLP, 2026 <br>
+SEF-PNet: "SEF-PNet:Speaker encoder-free personalized speech enhancement with local and global contexts aggregation" in ICASSP, 2025 <br>
+
 
 ### Evaluation samples
-
-
 
 <div style="overflow-x: auto; width: 100%;">
 <table style="border-collapse: collapse; text-align: center; white-space: nowrap; width: max-content;">
@@ -263,7 +268,10 @@ Rather than relying on an embedding-level matching loss, we explicitly train the
 </div>
 
 ### Libri2Mix samples
+PASE: “PASE: Leveraging the Phonological Prior of WavLM for Low-Hallucination Generative Speech Enhancement” in AAAI, 2026 <br>
+SEROM: "SEROM: Speech enhancement with representation optimized SSL modeling" in IWAENC, 2026 <br>
 
+SEROM: "SEROM: Speech enhancement with representation optimized SSL modeling" in IWAENC, 2026 <br>
 
 
 <div style="overflow-x: auto; width: 100%;">
