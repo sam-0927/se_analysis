@@ -16,7 +16,7 @@
 
 Speech enhancement (SE) and target speaker extraction (TSE) share the objective of recovering desired speech from corrupted input signals, but are generally trained with different data and objectives. In this work, we investigate whether pretrained SE models can perform TSE without any TSE-specific training. We find that this capability appears in WavLM-based SE models, while other evaluated SE models fail to utilize enrollment speech for target extraction. Motivated by the overlapped-speech pretraining of WavLM, we conduct a series of analyses to examine how enrollment information contributes to the transferred TSE capability. Experimental results show that the models utilize enrollment speech for target speaker selection, and that acoustic conditions of the enrollment affect extraction performance under severe interference. We further show that the downstream representation design also influences TSE performance, where information reduction effective for SE can be unfavorable for TSE. Finally, evaluation on a standard TSE benchmark demonstrates that SE-only models achieve meaningful target extraction performance compared with models explicitly trained for TSE.
 
-## Sample
+## Models
 CVAE: "Towards Complex-Valued VAE-Based Distillation for Representation Learning in Speech Enhancement" in ITG, 2025 <br>
 LCT-GAN: “Study of Lightweight Transformer Architectures for Single-Channel Speech Enhancement” in EUSIPCO, 2025 <br>
 PASE: “PASE: Leveraging the Phonological Prior of WavLM for Low-Hallucination Generative Speech Enhancement” in AAAI, 2026 <br>
@@ -268,12 +268,6 @@ SEF-PNet: "SEF-PNet:Speaker encoder-free personalized speech enhancement with lo
 </div>
 
 ### Libri2Mix samples
-PASE: “PASE: Leveraging the Phonological Prior of WavLM for Low-Hallucination Generative Speech Enhancement” in AAAI, 2026 <br>
-SEROM: "SEROM: Speech enhancement with representation optimized SSL modeling" in IWAENC, 2026 <br>
-
-SEROM: "SEROM: Speech enhancement with representation optimized SSL modeling" in IWAENC, 2026 <br>
-
-
 <div style="overflow-x: auto; width: 100%;">
 <table style="border-collapse: collapse; text-align: center; white-space: nowrap; width: max-content;">
 <tr>
@@ -288,6 +282,19 @@ SEROM: "SEROM: Speech enhancement with representation optimized SSL modeling" in
 <th style="min-width: 155px;">8</th>
 <th style="min-width: 155px;">9</th>
 <th style="min-width: 155px;">10</th>
+</tr>
+<tr>
+<td><strong>Input (Mixture)</strong></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/input_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/input_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/input_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/input_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/input_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/input_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/input_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/input_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/input_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/input_10.wav' type='audio/wav'></audio></td>
 </tr>
 <tr>
 <td><strong>Target</strong></td>
