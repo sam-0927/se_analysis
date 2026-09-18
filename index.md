@@ -387,5 +387,18 @@ SEF-PNet: "SEF-PNet:Speaker encoder-free personalized speech enhancement with lo
 <td><audio controls preload="none"><source src='./demo_sample_libri2mix/pase_libri2mix_scale_9.wav' type='audio/wav'></audio></td>
 <td><audio controls preload="none"><source src='./demo_sample_libri2mix/pase_libri2mix_scale_10.wav' type='audio/wav'></audio></td>
 </tr>
+  <tr>
+<td><strong>SEROM + Scale-matched</strong></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_scale_notrim_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_scale_notrim_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_scale_notrim_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_scale_notrim_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_scale_notrim_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_scale_notrim_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_scale_notrim_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_scale_notrim_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_scale_notrim_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_scale_notrim_10.wav' type='audio/wav'></audio></td>
+</tr>
 </table>
 </div>
