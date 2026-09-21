@@ -1,10 +1,10 @@
-# Speech Enhancement to Target Speaker Extraction
 <style>
 .anchor,
 .octicon-link {
   display: none !important;
 }
 </style>
+# Can Pretrained Speech Enhancement Models perform Target Speaker Extraction?
 
 ### ICASSP 2027
 <a href="2026_ICASSP.pdf" target="_blank">📄 Paper</a>
