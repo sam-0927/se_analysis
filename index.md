@@ -9,12 +9,96 @@
 <a href="2026_ICASSP.pdf" target="_blank">📄 Paper</a>
 
 ## Abstract
+Speech enhancement (SE) and target speaker extraction (TSE) share the objective of recovering desired speech from corrupted input signals, but are generally trained with different data and objectives. In this work, we investigate whether pretrained SE models can perform TSE without any TSE-specific training. We find that this capability appears in WavLM-based SE models, while other evaluated SE models fail to utilize enrollment speech for target extraction. Motivated by the overlapped-speech pretraining of WavLM, we conduct a series of analyses to examine how enrollment information contributes to the transferred TSE capability. Experimental results show that the models utilize enrollment speech for target speaker selection, and that acoustic conditions of the enrollment affect extraction performance under severe interference. We further show that the downstream representation design also influences TSE performance, where information reduction effective for SE can be unfavorable for TSE. Finally, evaluation on a standard TSE benchmark demonstrates that SE-only models achieve meaningful target extraction performance compared with models explicitly trained for TSE.
 
-<p align="center">
-  <img src="architecture_revise.png" width="600">
+## CER and SECS distributions
+<h2>Analysis</h2>
+
+<h3>Effect of enrollment</h3>
+
+<p>
+The following histograms show how target enrollment changes the behavior of PASE
+at <strong>-5 dB SIR</strong>. Without enrollment, the model often retains the
+interfering speaker, leading to high CER and low speaker similarity. Providing
+target enrollment shifts the CER distribution toward lower error rates and the
+SECS distribution toward higher similarity, showing that PASE can use enrollment
+speech for target speaker selection despite being trained only for speech enhancement.
 </p>
 
-Speech enhancement (SE) and target speaker extraction (TSE) share the objective of recovering desired speech from corrupted input signals, but are generally trained with different data and objectives. In this work, we investigate whether pretrained SE models can perform TSE without any TSE-specific training. We find that this capability appears in WavLM-based SE models, while other evaluated SE models fail to utilize enrollment speech for target extraction. Motivated by the overlapped-speech pretraining of WavLM, we conduct a series of analyses to examine how enrollment information contributes to the transferred TSE capability. Experimental results show that the models utilize enrollment speech for target speaker selection, and that acoustic conditions of the enrollment affect extraction performance under severe interference. We further show that the downstream representation design also influences TSE performance, where information reduction effective for SE can be unfavorable for TSE. Finally, evaluation on a standard TSE benchmark demonstrates that SE-only models achieve meaningful target extraction performance compared with models explicitly trained for TSE.
+<div style="display: flex; gap: 20px; justify-content: center; align-items: flex-start; flex-wrap: wrap;">
+  <div style="flex: 1 1 420px; max-width: 48%;">
+    <img src="figure/sir_minus5_cer_hist_pase.png"
+         alt="PASE CER distribution with and without enrollment at -5 dB SIR"
+         style="width: 100%; height: auto;">
+  </div>
+
+  <div style="flex: 1 1 420px; max-width: 48%;">
+    <img src="figure/sir_minus5_secs_hist_pase.png"
+         alt="PASE SECS distribution with and without enrollment at -5 dB SIR"
+         style="width: 100%; height: auto;">
+  </div>
+</div>
+
+<p style="text-align: center; font-size: 0.95em;">
+PASE at -5 dB SIR: CER (left) and SECS (right) distributions,
+comparing no enrollment and target enrollment.
+</p>
+
+
+<h3>Effect of enrollment scale</h3>
+
+<p>
+We next analyze the effect of <strong>scale-matched enrollment</strong>, where the
+enrollment level is matched to the target speech level in the mixture. The analysis
+is performed at <strong>-10 dB SIR</strong>, where the target speaker is substantially
+weaker than the interferer. For both SEROM and PASE, scale matching shifts the CER
+distribution toward lower error rates and the SECS distribution toward higher
+target-speaker similarity, indicating that enrollment level provides an additional
+cue under severe interference.
+</p>
+
+<h4>SEROM</h4>
+
+<div style="display: flex; gap: 20px; justify-content: center; align-items: flex-start; flex-wrap: wrap;">
+  <div style="flex: 1 1 420px; max-width: 48%;">
+    <img src="figure/sir_minus10_cer_hist_serom.png"
+         alt="SEROM CER distribution with standard and scale-matched enrollment at -10 dB SIR"
+         style="width: 100%; height: auto;">
+  </div>
+
+  <div style="flex: 1 1 420px; max-width: 48%;">
+    <img src="figure/sir_minus10_secs_hist_serom.png"
+         alt="SEROM SECS distribution with standard and scale-matched enrollment at -10 dB SIR"
+         style="width: 100%; height: auto;">
+  </div>
+</div>
+
+<p style="text-align: center; font-size: 0.95em;">
+SEROM at -10 dB SIR: CER (left) and SECS (right) distributions,
+comparing standard and scale-matched enrollment.
+</p>
+
+
+<h4>PASE</h4>
+
+<div style="display: flex; gap: 20px; justify-content: center; align-items: flex-start; flex-wrap: wrap;">
+  <div style="flex: 1 1 420px; max-width: 48%;">
+    <img src="figure/sir_minus10_cer_hist_pase.png"
+         alt="PASE CER distribution with standard and scale-matched enrollment at -10 dB SIR"
+         style="width: 100%; height: auto;">
+  </div>
+
+  <div style="flex: 1 1 420px; max-width: 48%;">
+    <img src="figure/sir_minus10_secs_hist_pase.png"
+         alt="PASE SECS distribution with standard and scale-matched enrollment at -10 dB SIR"
+         style="width: 100%; height: auto;">
+  </div>
+</div>
+
+<p style="text-align: center; font-size: 0.95em;">
+PASE at -10 dB SIR: CER (left) and SECS (right) distributions,
+comparing standard and scale-matched enrollment.
+</p>
 
 ## Models
 CVAE: "Towards Complex-Valued VAE-Based Distillation for Representation Learning in Speech Enhancement" in ITG, 2025 <br>
