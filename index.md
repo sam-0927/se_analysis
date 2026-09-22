@@ -8,59 +8,69 @@
 <style>
 /* Evaluation sample tables */
 .audio-table-scroll {
-  overflow-x: auto;
+  overflow: auto;
   width: 100%;
   max-width: 100%;
+  max-height: 68vh;   /* keep the horizontal scrollbar reachable */
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .audio-table {
   border-collapse: collapse;
   text-align: center;
-  white-space: nowrap;
   width: max-content;
   table-layout: fixed;
 }
 
-/* Keep the model/condition column visible while scrolling horizontally */
+/* Sticky header row */
+.audio-table tr:first-child th {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background: #fff;
+}
+
+/* Sticky model/condition column */
 .audio-table th:first-child,
 .audio-table td:first-child {
   position: sticky;
   left: 0;
   z-index: 2;
   background: #fff;
-  min-width: 180px;
-  width: 180px;
-  max-width: 180px;
+
+  min-width: 170px;
+  width: 170px;
+  max-width: 170px;
+
+  /* allow long labels such as "Scale-matched enrollment" to wrap */
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.25;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
+/* top-left cell must stay above both sticky directions */
 .audio-table tr:first-child th:first-child {
-  z-index: 3;
+  z-index: 4;
 }
 
-/* Make each sample column substantially narrower */
+/* Narrower sample columns */
 .audio-table th:not(:first-child),
 .audio-table td:not(:first-child) {
-  min-width: 205px;
-  width: 205px;
-  max-width: 205px;
+  min-width: 175px;
+  width: 175px;
+  max-width: 175px;
+  white-space: nowrap;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
+/* Compact native audio player */
 .audio-table audio {
-  width: 185px;
-  max-width: 185px;
-}
-
-/* Horizontal scrollbar duplicated above each long table */
-.top-scroll {
-  overflow-x: auto;
-  overflow-y: hidden;
-  width: 100%;
-  height: 18px;
-  margin-bottom: 4px;
-}
-
-.top-scroll-inner {
-  height: 1px;
+  width: 160px;
+  max-width: 160px;
 }
 </style>
 # Can Pretrained Speech Enhancement Models perform Target Speaker Extraction?
@@ -172,7 +182,6 @@ SEF-PNet: "SEF-PNet:Speaker encoder-free personalized speech enhancement with lo
 
 ### Evaluation samples
 
-<div class="top-scroll"><div class="top-scroll-inner"></div></div>
 <div class="audio-table-scroll">
 <table class="audio-table">
 <tr>
@@ -413,7 +422,6 @@ SEF-PNet: "SEF-PNet:Speaker encoder-free personalized speech enhancement with lo
 </div>
 
 ### Libri2Mix samples
-<div class="top-scroll"><div class="top-scroll-inner"></div></div>
 <div class="audio-table-scroll">
 <table class="audio-table">
 <tr>
@@ -549,42 +557,3 @@ SEF-PNet: "SEF-PNet:Speaker encoder-free personalized speech enhancement with lo
 </table>
 </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const topScrolls = document.querySelectorAll(".top-scroll");
-  const tableScrolls = document.querySelectorAll(".audio-table-scroll");
-
-  topScrolls.forEach(function (topScroll, i) {
-    const tableScroll = tableScrolls[i];
-    if (!tableScroll) return;
-
-    const inner = topScroll.querySelector(".top-scroll-inner");
-    const table = tableScroll.querySelector(".audio-table");
-    if (!inner || !table) return;
-
-    const syncWidth = function () {
-      inner.style.width = table.scrollWidth + "px";
-    };
-
-    syncWidth();
-    window.addEventListener("resize", syncWidth);
-
-    let syncingTop = false;
-    let syncingTable = false;
-
-    topScroll.addEventListener("scroll", function () {
-      if (syncingTable) return;
-      syncingTop = true;
-      tableScroll.scrollLeft = topScroll.scrollLeft;
-      syncingTop = false;
-    });
-
-    tableScroll.addEventListener("scroll", function () {
-      if (syncingTop) return;
-      syncingTable = true;
-      topScroll.scrollLeft = tableScroll.scrollLeft;
-      syncingTable = false;
-    });
-  });
-});
-</script>
