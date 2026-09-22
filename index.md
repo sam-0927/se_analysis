@@ -4,6 +4,65 @@
   display: none !important;
 }
 </style> -->
+
+<style>
+/* Evaluation sample tables */
+.audio-table-scroll {
+  overflow-x: auto;
+  width: 100%;
+  max-width: 100%;
+}
+
+.audio-table {
+  border-collapse: collapse;
+  text-align: center;
+  white-space: nowrap;
+  width: max-content;
+  table-layout: fixed;
+}
+
+/* Keep the model/condition column visible while scrolling horizontally */
+.audio-table th:first-child,
+.audio-table td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: #fff;
+  min-width: 180px;
+  width: 180px;
+  max-width: 180px;
+}
+
+.audio-table tr:first-child th:first-child {
+  z-index: 3;
+}
+
+/* Make each sample column substantially narrower */
+.audio-table th:not(:first-child),
+.audio-table td:not(:first-child) {
+  min-width: 205px;
+  width: 205px;
+  max-width: 205px;
+}
+
+.audio-table audio {
+  width: 185px;
+  max-width: 185px;
+}
+
+/* Horizontal scrollbar duplicated above each long table */
+.top-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  height: 18px;
+  margin-bottom: 4px;
+}
+
+.top-scroll-inner {
+  height: 1px;
+}
+</style>
 # Can Pretrained Speech Enhancement Models perform Target Speaker Extraction?
 
 ### ICASSP 2027
@@ -113,20 +172,21 @@ SEF-PNet: "SEF-PNet:Speaker encoder-free personalized speech enhancement with lo
 
 ### Evaluation samples
 
-<div style="overflow-x: auto; width: 100%;">
-<table style="border-collapse: collapse; text-align: center; white-space: nowrap; width: max-content;">
+<div class="top-scroll"><div class="top-scroll-inner"></div></div>
+<div class="audio-table-scroll">
+<table class="audio-table">
 <tr>
-<th style="min-width: 180px;">Model / Condition</th>
-<th style="min-width: 155px;">1</th>
-<th style="min-width: 155px;">2</th>
-<th style="min-width: 155px;">3</th>
-<th style="min-width: 155px;">4</th>
-<th style="min-width: 155px;">5</th>
-<th style="min-width: 155px;">6</th>
-<th style="min-width: 155px;">7</th>
-<th style="min-width: 155px;">8</th>
-<th style="min-width: 155px;">9</th>
-<th style="min-width: 155px;">10</th>
+<th>Model / Condition</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
 </tr>
 <tr>
 <td><strong>Input (Mixture)</strong></td>
@@ -353,20 +413,21 @@ SEF-PNet: "SEF-PNet:Speaker encoder-free personalized speech enhancement with lo
 </div>
 
 ### Libri2Mix samples
-<div style="overflow-x: auto; width: 100%;">
-<table style="border-collapse: collapse; text-align: center; white-space: nowrap; width: max-content;">
+<div class="top-scroll"><div class="top-scroll-inner"></div></div>
+<div class="audio-table-scroll">
+<table class="audio-table">
 <tr>
-<th style="min-width: 190px;">Model</th>
-<th style="min-width: 155px;">1</th>
-<th style="min-width: 155px;">2</th>
-<th style="min-width: 155px;">3</th>
-<th style="min-width: 155px;">4</th>
-<th style="min-width: 155px;">5</th>
-<th style="min-width: 155px;">6</th>
-<th style="min-width: 155px;">7</th>
-<th style="min-width: 155px;">8</th>
-<th style="min-width: 155px;">9</th>
-<th style="min-width: 155px;">10</th>
+<th>Model</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
 </tr>
 <tr>
 <td><strong>Input (Mixture)</strong></td>
@@ -487,3 +548,43 @@ SEF-PNet: "SEF-PNet:Speaker encoder-free personalized speech enhancement with lo
 </tr>
 </table>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const topScrolls = document.querySelectorAll(".top-scroll");
+  const tableScrolls = document.querySelectorAll(".audio-table-scroll");
+
+  topScrolls.forEach(function (topScroll, i) {
+    const tableScroll = tableScrolls[i];
+    if (!tableScroll) return;
+
+    const inner = topScroll.querySelector(".top-scroll-inner");
+    const table = tableScroll.querySelector(".audio-table");
+    if (!inner || !table) return;
+
+    const syncWidth = function () {
+      inner.style.width = table.scrollWidth + "px";
+    };
+
+    syncWidth();
+    window.addEventListener("resize", syncWidth);
+
+    let syncingTop = false;
+    let syncingTable = false;
+
+    topScroll.addEventListener("scroll", function () {
+      if (syncingTable) return;
+      syncingTop = true;
+      tableScroll.scrollLeft = topScroll.scrollLeft;
+      syncingTop = false;
+    });
+
+    tableScroll.addEventListener("scroll", function () {
+      if (syncingTop) return;
+      syncingTable = true;
+      topScroll.scrollLeft = tableScroll.scrollLeft;
+      syncingTable = false;
+    });
+  });
+});
+</script>
