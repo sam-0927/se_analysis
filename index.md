@@ -582,7 +582,7 @@ These results suggest that the SEROM architecture itself is also highly effectiv
 <td><audio controls preload="none"><source src='./demo_sample_libri2mix/pase_libri2mix_scale_10.wav' type='audio/wav'></audio></td>
 </tr>
   <tr>
-<td><strong>SEROM + Scale-matched</strong></td>
+<td><strong>TSE-trained SEROM</strong></td>
 <td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_1.wav' type='audio/wav'></audio></td>
 <td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_2.wav' type='audio/wav'></audio></td>
 <td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_3.wav' type='audio/wav'></audio></td>
