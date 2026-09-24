@@ -583,16 +583,16 @@ These results suggest that the SEROM architecture itself is also highly effectiv
 </tr>
   <tr>
 <td><strong>SEROM + Scale-matched</strong></td>
-<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_scale_notrim_1.wav' type='audio/wav'></audio></td>
-<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_scale_notrim_2.wav' type='audio/wav'></audio></td>
-<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_scale_notrim_3.wav' type='audio/wav'></audio></td>
-<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_scale_notrim_4.wav' type='audio/wav'></audio></td>
-<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_scale_notrim_5.wav' type='audio/wav'></audio></td>
-<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_scale_notrim_6.wav' type='audio/wav'></audio></td>
-<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_scale_notrim_7.wav' type='audio/wav'></audio></td>
-<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_scale_notrim_8.wav' type='audio/wav'></audio></td>
-<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_scale_notrim_9.wav' type='audio/wav'></audio></td>
-<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_scale_notrim_10.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_1.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_2.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_3.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_4.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_5.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_6.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_7.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_8.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_9.wav' type='audio/wav'></audio></td>
+<td><audio controls preload="none"><source src='./demo_sample_libri2mix/seromi_woctc_libri2mix_10.wav' type='audio/wav'></audio></td>
 </tr>
 </table>
 </div>
