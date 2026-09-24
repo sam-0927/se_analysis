@@ -421,6 +421,46 @@ SEF-PNet: "SEF-PNet:Speaker encoder-free personalized speech enhancement with lo
 </table>
 </div>
 
+<h3>TSE-trained SEROM</h3>
+
+<p>
+To further examine the potential of the SEROM architecture for TSE, we train a TSE-specific variant on Libri2Mix train-100. The model follows the SEROM w/o CTC architecture, while a speaker embedding extracted by ECAPA-TDNN is projected and added to each decoder block for target-speaker conditioning. Despite using substantially less training data than SoloSpeech, which is trained on train-360, the model achieves better DNSMOS, UTMOS, and CER/WER, with slightly lower SECS.
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Training set</th>
+      <th>DNSMOS ↑</th>
+      <th>UTMOS ↑</th>
+      <th>SECS ↑</th>
+      <th>CER / WER (%) ↓</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SoloSpeech</td>
+      <td>train-360</td>
+      <td>3.22</td>
+      <td>3.56</td>
+      <td><strong>0.71</strong></td>
+      <td>12.04 / 19.54</td>
+    </tr>
+    <tr>
+      <td>SEROM-TSE</td>
+      <td>train-100</td>
+      <td><strong>3.26</strong></td>
+      <td><strong>3.57</strong></td>
+      <td>0.699</td>
+      <td><strong>6.85 / 11.90</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+These results suggest that the SEROM architecture itself is also highly effective for explicit TSE training, beyond the transferable TSE capability observed after SE-only training.
+</p>
 ### Libri2Mix samples
 <div class="audio-table-scroll">
 <table class="audio-table">
